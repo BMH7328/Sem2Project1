@@ -10,6 +10,7 @@ import { AiOutlineUnorderedList, AiOutlineEdit } from "react-icons/ai";
 import Modal from "react-bootstrap/Modal";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Alert from 'react-bootstrap/Alert';
 // edit button
 
 export default function ShoppingLists() {
@@ -261,6 +262,7 @@ export function MyVerticallyCenteredModal(props) {
   const [category, setCategory] = useState("");
   const [quantity, setQuantity] = useState("");
   const [list, setList] = useState([]);
+  const [invisibleSuccess, setInvisibleSuccess] = useState(false);
 
   useEffect(() => {
     const shoppingList = JSON.parse(localStorage.getItem("shoppingList"));
