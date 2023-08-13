@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import "./App.css";
 import ShoppingList from "./pages/shoppinglist";
 import EditItems from "./pages/edit";
 import React from "react";
@@ -7,39 +8,37 @@ import { IconSun, IconMoonStars } from "@tabler/icons-react";
 import { AppShell, Navbar, Header } from "@mantine/core";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai";
 
 function App() {
   return (
     <AppShell
       padding="md"
-      navbar={<Navbar width={{ base: 200 }} p="xs">   
-          <Navbar.Section className="mt-5 text-center" href="/add.js"> 
-
-              <Button variant="secondary" size="sm">
-               Home 
+      navbar={<Navbar width={{ base: 200 }} p="xs"> 
+      <div className ="navbtn">
+          <Navbar.Section className="mt-3 text-center"> 
+            <a href="/">
+                <Button variant="primary" size="lg">
+              <AiOutlineHome />Home 
               </Button>
-            
+              </a>
             </Navbar.Section>
     
-          {/* <Navbar.Section grow>
-          <Link 
-              to="/"
-              className="me-2 fs-5 btn-btn-secondary">
-
-              <Button  
-              variant="secondary" size="sm">
-               Shopping List
+            <Navbar.Section className="mt-3 text-center"> 
+            <a href="/add">
+                <Button variant="primary" size="lg">
+              <AiOutlineShoppingCart />Add
               </Button>
-            </Link>
-            </Navbar.Section>  */}
-    
-          
-
-    </Navbar>}
+              </a>
+            </Navbar.Section>
+            </div>
+      </Navbar>}
       header={
+        <div className="picture">
         <Header height={60} p="xs">
-          FC ShoppingList
+        <img src="/FCSL.png" style={{ width: "100%", maxWidth: "50px" }} />
         </Header>
+        </div>
       }
       styles={(theme) => ({
         main: {

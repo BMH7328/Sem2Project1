@@ -115,14 +115,16 @@ export default function ShoppingLists() {
               setFilter(event.target.value);
             }}
           >
-            <option value="">All category</option>
-            <option value="vegetables">Vegetables</option>
-            <option value="wet Item">Wet Items</option>
-            <option value="drinks">Drinks</option>
-            <option value="bread">Bread</option>
-            <option value="fruits">Fruits</option>
-            <option value="household">Household Supplies</option>
-            <option value="others">Others</option>
+              <option value="">Select a Category</option>
+              <option value="">All Category</option>
+              <option value="Vegetables">Vegetables</option>
+              <option value="Fruits">Fruits</option>
+              <option value="Can-Food">Can Foods</option>
+              <option value="Wet-Items">Wet Items</option>
+              <option value="Dry-Items">Dry Items</option>
+              <option value="Snacks">Snacks</option>
+              <option value="Household">Household Supplies</option>
+              <option value="Others">Others</option>
           </Form.Select>
           <Table striped bordered hover>
             <thead>

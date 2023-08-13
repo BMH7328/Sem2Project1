@@ -81,7 +81,6 @@ export default function EditItems() {
               }}
             >
               <option value="">Select a Category</option>
-              <option value="">All Category</option>
               <option value="Vegetables">Vegetables</option>
               <option value="Fruits">Fruits</option>
               <option value="Can-Food">Can Foods</option>
