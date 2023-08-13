@@ -208,13 +208,7 @@ export default function ShoppingLists() {
                                 <AiOutlineEdit />
                               </Button>
                             </Link>
-
-                            <MyVerticallyCenteredModal
-                              show={modalShow}
-                              onHide={() => setModalShow(false)}
-                            />
                           </>
-
                           <Button
                             variant="danger"
                             size="sm"
