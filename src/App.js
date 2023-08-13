@@ -4,10 +4,9 @@ import "./App.css";
 import ShoppingList from "./pages/shoppinglist";
 import EditItems from "./pages/edit";
 import React from "react";
-import { IconSun, IconMoonStars } from "@tabler/icons-react";
 import { AppShell, Navbar, Header } from "@mantine/core";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai";
 
 function App() {
@@ -15,31 +14,22 @@ function App() {
     <AppShell
       padding="md"
       navbar={<Navbar width={{ base: 200 }} p="xs"> 
-      <div className ="navbtn">
+      <Navbar.Section>
+            <img src="/FCSL.png" className="ms-3" style={{ width: "100%", maxWidth: "150px" }} />
+          </Navbar.Section>
           <Navbar.Section className="mt-3 text-center"> 
             <a href="/">
-                <Button variant="primary" size="lg">
-              <AiOutlineHome />Home 
+              <Button className="navbtn mx-auto" size="lg" variant="success">
+                  <span className="iconHome"><AiOutlineHome /></span>
+                  <span className="iconText">Home</span>
               </Button>
               </a>
             </Navbar.Section>
-    
-            <Navbar.Section className="mt-3 text-center"> 
-            <a href="/add">
-                <Button variant="primary" size="lg">
-              <AiOutlineShoppingCart />Add
-              </Button>
-              </a>
-            </Navbar.Section>
-            </div>
+            <Navbar.Section className="navtext text-success">
+            <p>Created By: <br/> Shawn & Denish</p>
+            <p> Co-Founders of <br/> FC.SDN.BHD.</p>
+          </Navbar.Section>
       </Navbar>}
-      header={
-        <div className="picture">
-        <Header height={60} p="xs">
-        <img src="/FCSL.png" style={{ width: "100%", maxWidth: "50px" }} />
-        </Header>
-        </div>
-      }
       styles={(theme) => ({
         main: {
           backgroundColor: theme.colors.dark[0]
@@ -55,12 +45,5 @@ function App() {
     </AppShell>
   );
 }
-
-// export const usage: MantineDemo = {
-//   type: "demo",
-//   component: Demo,
-//   demoProps: { spacing: false },
-//   code
-// };
 
 export default App;

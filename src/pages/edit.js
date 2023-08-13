@@ -47,7 +47,7 @@ export default function EditItems() {
   return (
     <div className="container mx-auto my-5">
       <div className="d-flex justify-content-between align-items-center mb-2">
-        <h1 className="h1">Edit List</h1>
+        <h1 className="h1 text-success">Edit List</h1>
       </div>
       <div className="card mb-2 p-4">
         <form
@@ -57,7 +57,7 @@ export default function EditItems() {
           }}
         >
           <div className="mb-3">
-            <label for="list-item" className="form-label">
+            <label for="list-item" className="h4 form-label">
               Item
             </label>
             <input
@@ -69,11 +69,11 @@ export default function EditItems() {
             />
           </div>
           <div className="mb-3">
-            <label for="category" className="form-label">
+            <label for="category" className="h4 form-label">
               Category
             </label>
             <select
-              className="form-control"
+              className="form-control text-secondary"
               id="item-category"
               value={category}
               onChange={(event) => {
@@ -92,7 +92,7 @@ export default function EditItems() {
             </select>
           </div>
           <div className="mb-3">
-            <label for="list-quantity" className="form-label">
+            <label for="list-quantity" className="h4 form-label">
               Quantity
             </label>
             <input
@@ -103,16 +103,16 @@ export default function EditItems() {
               onChange={(event) => setQuantity(event.target.value)}
             />
           </div>
-          <div className="text-end">
-            <button type="submit" className="btn btn-primary">
+          <div className="text-end text-success">
+            <Button type="submit" size="md" className="btn btn-success">
               Update
-            </button>
+            </Button>
           </div>
         </form>
       </div>
-      <div className="text-center">
+      <div className="text-center mt-5">
       <Link to="/">              
-         <Button variant="primary" size="md">
+         <Button variant="success" size="md" classname="text-success">
            <HiArrowNarrowLeft />Back To Home
          </Button>
         </Link>

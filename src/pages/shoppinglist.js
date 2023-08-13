@@ -6,11 +6,10 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import { BsTrash } from "react-icons/bs";
 import { HiArrowNarrowLeft } from "react-icons/hi";
-import { AiOutlineUnorderedList, AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineEdit } from "react-icons/ai";
 import Modal from "react-bootstrap/Modal";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Alert from 'react-bootstrap/Alert';
 // edit button
 
 export default function ShoppingLists() {
@@ -79,16 +78,16 @@ export default function ShoppingLists() {
     <div className="container mt-5 mx-auto" style={{ maxwidth: "800px" }}>
       <Card>
         <Card.Body>
-          <Card.Title className="text-center">
+          <Card.Title className="text-center text-success">
             <h2>
-              <AiOutlineUnorderedList /> Shopping List
+               Shopping List
             </h2>
           </Card.Title>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <>
               <Button
-                variant="primary"
-                size="sm"
+                variant="success"
+                size="md"
                 className="me-2 mb-4"
                 onClick={() => setModalShow(true)}
               >
@@ -109,13 +108,12 @@ export default function ShoppingLists() {
             </>
           </div>
           <Form.Select
-            className="mb-4"
+            className="mb-4 text-success"
             value={filter}
             onChange={(event) => {
               setFilter(event.target.value);
             }}
           >
-              <option value="">Select a Category</option>
               <option value="">All Category</option>
               <option value="Vegetables">Vegetables</option>
               <option value="Fruits">Fruits</option>
@@ -142,16 +140,16 @@ export default function ShoppingLists() {
                   </div>
                 </th>
                 <th>
-                  <div className="text-center">Items</div>
+                  <div className="text-center text-success">Items</div>
                 </th>
                 <th>
-                  <div className="text-center">Category</div>
+                  <div className="text-center text-success">Category</div>
                 </th>
                 <th>
-                  <div className="text-center">Quantity</div>
+                  <div className="text-center text-success">Quantity</div>
                 </th>
                 <th>
-                  <div className="text-center">
+                  <div className="text-center text-success">
                     Actions
                     <Button
                       variant="danger"
@@ -192,13 +190,13 @@ export default function ShoppingLists() {
                         </div>
                       </td>
                       <td>
-                        <div className="text-center">{i.item}</div>
+                        <div className="text-center text-success">{i.item}</div>
                       </td>
                       <td>
-                        <div className="text-center">{i.category}</div>
+                        <div className="text-center text-success">{i.category}</div>
                       </td>
                       <td>
-                        <div className="text-center">{i.quantity}</div>
+                        <div className="text-center text-success">{i.quantity}</div>
                       </td>
                       <td>
                         <div className="text-center">
@@ -243,7 +241,7 @@ export default function ShoppingLists() {
       </Card>
       <div className="mt-5 text-center">
       <Link to="/">              
-             <Button variant="primary" size="sm">
+             <Button variant="success" size="md">
                <HiArrowNarrowLeft />Back to Home
              </Button>
            </Link>
@@ -258,7 +256,6 @@ export function MyVerticallyCenteredModal(props) {
   const [category, setCategory] = useState("");
   const [quantity, setQuantity] = useState("");
   const [list, setList] = useState([]);
-  const [invisibleSuccess, setInvisibleSuccess] = useState(false);
 
   useEffect(() => {
     const shoppingList = JSON.parse(localStorage.getItem("shoppingList"));
@@ -296,12 +293,11 @@ export function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title id="contained-modal-title-vcenter" className="text-success">
           Add Shopping List
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>List</h4>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -309,7 +305,7 @@ export function MyVerticallyCenteredModal(props) {
           }}
         >
           <div className="mb-3">
-            <label for="list-item" className="form-label">
+            <label for="list-item" className="h4 form-label">
               Item
             </label>
             <input
@@ -321,11 +317,11 @@ export function MyVerticallyCenteredModal(props) {
             />
           </div>
           <div className="mb-3">
-            <label for="category" className="form-label">
+            <label for="category" className="h4 form-label">
               Category
             </label>
             <select
-              className="form-control"
+              className="form-control text-secondary"
               id="item-category"
               value={category}
               onChange={(event) => {
@@ -333,7 +329,6 @@ export function MyVerticallyCenteredModal(props) {
               }}
             >
               <option value="">Select a Category</option>
-              <option value="">All Category</option>
               <option value="Vegetables">Vegetables</option>
               <option value="Fruits">Fruits</option>
               <option value="Can-Food">Can Foods</option>
@@ -345,7 +340,7 @@ export function MyVerticallyCenteredModal(props) {
             </select>
           </div>
           <div className="mb-3">
-            <label for="list-quantity" className="form-label">
+            <label for="list-quantity" className="h4 form-label">
               Quantity
             </label>
             <input
@@ -356,21 +351,13 @@ export function MyVerticallyCenteredModal(props) {
               onChange={(event) => setQuantity(event.target.value)}
             />
           </div>
-          <div className="text-end">
-            <Button type="submit" className="btn btn-primary">
+          <div className="text-end text-success">
+            <Button type="submit" size="md" className="btn btn-success">
               Add
             </Button>
           </div>
         </form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-          <Link to="/">              
-             <Button variant="secondary" size="sm">
-               <HiArrowNarrowLeft />Back
-             </Button>
-           </Link>
-      </Modal.Footer>
     </Modal>
   );
 }
