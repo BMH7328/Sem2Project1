@@ -124,7 +124,8 @@ export default function ShoppingLists() {
               <option value="Household">Household Supplies</option>
               <option value="Others">Others</option>
           </Form.Select>
-          <Table striped bordered hover>
+          <div className="overflow-x-scroll">
+          <Table striped bordered hover >
             <thead>
               <tr>
                 <th>
@@ -237,6 +238,7 @@ export default function ShoppingLists() {
               )}
             </tbody>
           </Table>
+          </div>
         </Card.Body>
       </Card>
       <div className="mt-5 text-center">

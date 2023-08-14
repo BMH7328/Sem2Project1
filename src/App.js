@@ -15,7 +15,7 @@ function App() {
       padding="md"
       navbar={<Navbar width={{ base: 200 }} p="xs" className="abc"> 
       <Navbar.Section>
-            <img src="/FCSL.png" className="ms-3" style={{ width: "100%", maxWidth: "150px" }} />
+            <img src="/FCSL.png" className=" pic ms-3" style={{ width: "100%", maxWidth: "150px" }} />
           </Navbar.Section>
           <Navbar.Section className="mt-3 text-center"> 
             <a href="/">
