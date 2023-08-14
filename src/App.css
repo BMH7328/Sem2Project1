@@ -24,3 +24,13 @@
 .iconHome{
     vertical-align: text-bottom;
 }
+
+@media screen and (max-width: 768px) {
+    .abc {
+        display: none;
+        /* padding-left: 20px; */
+    }
+    .mantine-9imojv {
+        padding: 0 !important;
+    }
+}

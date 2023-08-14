@@ -4,16 +4,16 @@ import "./App.css";
 import ShoppingList from "./pages/shoppinglist";
 import EditItems from "./pages/edit";
 import React from "react";
-import { AppShell, Navbar, Header } from "@mantine/core";
+import { AppShell, Navbar } from "@mantine/core";
 import { Button } from "react-bootstrap";
 
-import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHome } from "react-icons/ai";
 
 function App() {
   return (
     <AppShell
       padding="md"
-      navbar={<Navbar width={{ base: 200 }} p="xs"> 
+      navbar={<Navbar width={{ base: 200 }} p="xs" className="abc"> 
       <Navbar.Section>
             <img src="/FCSL.png" className="ms-3" style={{ width: "100%", maxWidth: "150px" }} />
           </Navbar.Section>
