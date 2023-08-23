@@ -79,9 +79,7 @@ export default function ShoppingLists() {
       <Card>
         <Card.Body>
           <Card.Title className="text-center text-success">
-            <h2>
-               Shopping List
-            </h2>
+            <h2>Shopping List</h2>
           </Card.Title>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <>
@@ -97,14 +95,16 @@ export default function ShoppingLists() {
               <MyVerticallyCenteredModal
                 show={modalShow}
                 onHide={() => {
-                    setModalShow(false);
-                    // retrieve the updated shopping list from local storage to state
-                    const shoppingList = JSON.parse(localStorage.getItem("shoppingList"));
-                    if (shoppingList) {
-                      setList(shoppingList);
-                    }
+                  setModalShow(false);
+                  // retrieve the updated shopping list from local storage to state
+                  const shoppingList = JSON.parse(
+                    localStorage.getItem("shoppingList")
+                  );
+                  if (shoppingList) {
+                    setList(shoppingList);
+                  }
                 }}
-                />
+              />
             </>
           </div>
           <Form.Select
@@ -114,139 +114,144 @@ export default function ShoppingLists() {
               setFilter(event.target.value);
             }}
           >
-              <option value="">All Category</option>
-              <option value="Vegetables">Vegetables</option>
-              <option value="Fruits">Fruits</option>
-              <option value="Can-Food">Can Foods</option>
-              <option value="Wet-Items">Wet Items</option>
-              <option value="Dry-Items">Dry Items</option>
-              <option value="Snacks">Snacks</option>
-              <option value="Household">Household Supplies</option>
-              <option value="Others">Others</option>
+            <option value="">All Category</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Can-Food">Can Foods</option>
+            <option value="Wet-Items">Wet Items</option>
+            <option value="Dry-Items">Dry Items</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Household">Household Supplies</option>
+            <option value="Others">Others</option>
           </Form.Select>
           <div className="overflow-x-scroll">
-          <Table striped bordered hover >
-            <thead>
-              <tr>
-                <th>
-                  <div className="text-center">
-                    <Form.Check
-                      type="checkbox"
-                      checked={checkAll}
-                      disabled={list && list.length > 0 ? false : true}
-                      onChange={(event) => {
-                        checkBoxAll(event);
-                      }}
-                    />
-                  </div>
-                </th>
-                <th>
-                  <div className="text-center text-success">Items</div>
-                </th>
-                <th>
-                  <div className="text-center text-success">Category</div>
-                </th>
-                <th>
-                  <div className="text-center text-success">Quantity</div>
-                </th>
-                <th>
-                  <div className="text-center text-success">
-                    Actions
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      className="ms-2"
-                      disabled={
-                        checkedList && checkedList.length > 0 ? false : true
-                      }
-                      onClick={(event) => {
-                        event.preventDefault();
-                        deleteCheckItems();
-                      }}
-                    >
-                      <BsTrash />
-                    </Button>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredList.length > 0 ? (
-                filteredList.map((i) => {
-                  return (
-                    <tr key={i.id}>
-                      <td>
-                        <div className="text-center">
-                          <Form.Check
-                            checked={
-                              checkedList && checkedList.includes(i.id)
-                                ? true
-                                : false
-                            }
-                            type="checkbox"
-                            onChange={(event) => {
-                              checkboxOne(event, i.id);
-                            }}
-                          />
-                        </div>
-                      </td>
-                      <td>
-                        <div className="text-center text-success">{i.item}</div>
-                      </td>
-                      <td>
-                        <div className="text-center text-success">{i.category}</div>
-                      </td>
-                      <td>
-                        <div className="text-center text-success">{i.quantity}</div>
-                      </td>
-                      <td>
-                        <div className="text-center">
-                          <>
-                            <Link
-                              to={`/edit/${i.id}`}
-                              className="me-2 fs-5">
-                              <Button variant="secondary" size="sm">
-                                <AiOutlineEdit />
-                              </Button>
-                            </Link>
-                          </>
-                          <Button
-                            variant="danger"
-                            size="sm"
-                            className="me-2"
-                            onClick={(event) => {
-                              event.preventDefault();
-                              deleteShoppingList(i.id);
-                            }}
-                          >
-                            <BsTrash />
-                          </Button>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })
-              ) : (
+            <Table striped bordered hover>
+              <thead>
                 <tr>
-                  <td colSpan={5} className="text-center">
-                    <img src="https://i0.wp.com/www.huratips.com/wp-content/uploads/2019/04/empty-cart.png?fit=603%2C288&ssl=1" />
-                    <h1 className="text-center pe-5 text-secondary">
-                      NO ITEM ADDED YET
-                    </h1>
-                  </td>
+                  <th>
+                    <div className="text-center">
+                      <Form.Check
+                        type="checkbox"
+                        checked={checkAll}
+                        disabled={list && list.length > 0 ? false : true}
+                        onChange={(event) => {
+                          checkBoxAll(event);
+                        }}
+                      />
+                    </div>
+                  </th>
+                  <th>
+                    <div className="text-center text-success">Items</div>
+                  </th>
+                  <th>
+                    <div className="text-center text-success">Category</div>
+                  </th>
+                  <th>
+                    <div className="text-center text-success">Quantity</div>
+                  </th>
+                  <th>
+                    <div className="text-center text-success">
+                      Actions
+                      <Button
+                        variant="danger"
+                        size="sm"
+                        className="ms-2"
+                        disabled={
+                          checkedList && checkedList.length > 0 ? false : true
+                        }
+                        onClick={(event) => {
+                          event.preventDefault();
+                          deleteCheckItems();
+                        }}
+                      >
+                        <BsTrash />
+                      </Button>
+                    </div>
+                  </th>
                 </tr>
-              )}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {filteredList.length > 0 ? (
+                  filteredList.map((i) => {
+                    return (
+                      <tr key={i.id}>
+                        <td>
+                          <div className="text-center">
+                            <Form.Check
+                              checked={
+                                checkedList && checkedList.includes(i.id)
+                                  ? true
+                                  : false
+                              }
+                              type="checkbox"
+                              onChange={(event) => {
+                                checkboxOne(event, i.id);
+                              }}
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div className="text-center text-success">
+                            {i.item}
+                          </div>
+                        </td>
+                        <td>
+                          <div className="text-center text-success">
+                            {i.category}
+                          </div>
+                        </td>
+                        <td>
+                          <div className="text-center text-success">
+                            {i.quantity}
+                          </div>
+                        </td>
+                        <td>
+                          <div className="text-center">
+                            <>
+                              <Link to={`/edit/${i.id}`} className="me-2 fs-5">
+                                <Button variant="secondary" size="sm">
+                                  <AiOutlineEdit />
+                                </Button>
+                              </Link>
+                            </>
+                            <Button
+                              variant="danger"
+                              size="sm"
+                              className="me-2"
+                              onClick={(event) => {
+                                event.preventDefault();
+                                deleteShoppingList(i.id);
+                              }}
+                            >
+                              <BsTrash />
+                            </Button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan={5} className="text-center">
+                      <img src="https://i0.wp.com/www.huratips.com/wp-content/uploads/2019/04/empty-cart.png?fit=603%2C288&ssl=1" />
+                      <h1 className="text-center pe-5 text-secondary">
+                        NO ITEM ADDED YET
+                      </h1>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </Table>
           </div>
         </Card.Body>
       </Card>
       <div className="mt-5 text-center">
-      <Link to="/">              
-             <Button variant="success" size="md">
-               <HiArrowNarrowLeft />Back to Home
-             </Button>
-           </Link>
+        <Link to="/">
+          <Button variant="success" size="md">
+            <HiArrowNarrowLeft />
+            Back to Home
+          </Button>
+        </Link>
       </div>
     </div>
   );
@@ -264,7 +269,7 @@ export function MyVerticallyCenteredModal(props) {
     if (shoppingList) {
       setList(shoppingList);
     }
-  }, []);
+  }, [props.show]);
 
   const addShoppingList = () => {
     const newList = [...list];
@@ -295,7 +300,10 @@ export function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter" className="text-success">
+        <Modal.Title
+          id="contained-modal-title-vcenter"
+          className="text-success"
+        >
           Add Shopping List
         </Modal.Title>
       </Modal.Header>
